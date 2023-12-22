@@ -1,23 +1,18 @@
 class Solution:
 
     def isAnagram(self, s: str, t: str) -> bool:
-        frequency_s = {}
-        frequency_t = {}
-        if len(s) == len(t):
-            for each in s:
-                if each in frequency_s.keys():
-                    frequency_s[each] += 1
-                else:
-                    frequency_s[each] = 1
-            for each in t:
-                if each in frequency_t.keys():
-                    frequency_t[each] += 1
-                else:
-                    frequency_t[each] = 1
-            if frequency_s == frequency_t:
-                return True
-        else:
+        if len(s) != len(t):
             return False
-        return False
+        mapS, mapT = {}, {}
+        for i in range(len(s)):
+            mapS[s[i]] = 1 + mapS.get(s[i], 0)
+            mapT[t[i]] = 1 + mapT.get(t[i], 0)
+        for key in mapS:
+            if mapS[key] == mapT.get(key, 0):
+                continue
+            else:
+                return False
+        return True
+ 
 
         
