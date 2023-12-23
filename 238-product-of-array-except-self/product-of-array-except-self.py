@@ -23,7 +23,7 @@ class Solution:
         # return result
 # with space complexity as O(1):
 # -> instead of building two post and prefix arrays let us use variables and keep track of product and directly manipulate final array
-# -> traversing remains same; during prefix sequence we go from 0 to end and at each index we multiply prefix variable to current num, feed value to result, update prefix to current result; similarly for postfix sequence we do vice versa
+# -> traversing remains same; during prefix sequence we go from 0 to end and at each index we have result as prefix and update prefix with current num for next; similarly for postfix sequence we do vice versa.. at each stage result is result*postfix and postfix equals postfix * current number
 
         prefix = 1
         postfix = 1
