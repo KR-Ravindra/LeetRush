@@ -1,7 +1,8 @@
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
-        map = {}
-        for i in range(len(nums)):
-            if (target - nums[i]) in map:
-                return [i, map[target - nums[i]]]
-            map[nums[i]] = i
+        seen = {}
+        for index, eachnum in enumerate(nums):
+            diff = target-eachnum
+            if diff in seen:
+                return [index, seen[diff]]
+            seen[eachnum] = index
