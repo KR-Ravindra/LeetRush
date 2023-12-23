@@ -29,16 +29,10 @@ class Solution:
         postfix = 1
         result = [1] * len(nums)
         for index in range(len(nums)):
-            if index == 0:
-                result[index] = prefix
-                continue
-            result[index] = prefix * nums[index-1]
-            prefix = result[index]
+            result[index] = prefix
+            prefix *= nums[index]
         for index in range(len(nums)-1, -1, -1):
-            if index == len(nums)-1:
-                postfix = nums[index]
-                continue
-            result[index] = result[index] * postfix
+            result[index] *= postfix
             postfix = postfix * nums[index]
         return result
 
