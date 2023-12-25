@@ -20,7 +20,7 @@ class Solution:
         #         columncount[j].add(board[i][j])
         #         submatrixcount[i//3,j//3].add(board[i][j])
         # return True
-# way2:
+# way2: manually building submatrices
         rowscount = defaultdict(set)
         columncount = defaultdict(set)
 
