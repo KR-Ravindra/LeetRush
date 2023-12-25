@@ -1,19 +1,20 @@
 class Solution:
     def longestConsecutive(self, nums: List[int]) -> int:
-        longest_length = 0
 # solution:
 # - by algorithm:
 # -> image a number line of these each elements, for consecuitive there is no left neighbour.
 # -> if there is no left neighbour, we have to initiate length counting and then count till the next number exists in loop.
 # -> finally see if longest<length and update; at end of loop return 
         numSet = set(nums)
-        for eachnum in numSet:
-            if eachnum - 1 not in numSet:
-                length = 0
-                while eachnum+length in numSet: #`in` operation in a set is O(1)
+        longest = 0
+        for num in numSet:
+            length = 1
+            if num-1 not in numSet:
+                while num+length in numSet:
                     length += 1
-                longest_length = max(length, longest_length)
-        return longest_length
+            longest = max(length, longest)
+        return longest
+
 # solution:
 # - by sorting:
 # sort numbers and then see if difference is 1 (means consecutive..); then keep counting till length increases..
