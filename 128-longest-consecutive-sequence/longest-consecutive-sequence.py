@@ -20,13 +20,13 @@ class Solution:
 # sort numbers and then see if difference is 1 (means consecutive..); then keep counting till length increases..
 # here we convert sortednums to set because; `in` operation for set is O(1)
 # solution comes of O(nlogn) and time exceeds
-        # sortednums = sorted(nums)
-        # sortednumsSet = set(sortednums)
-        # for num in sortednumsSet:
-        #     if num+1 - num == 1:
-        #         length = 0
-        #         while num+length in sortednumsSet:
-        #             length += 1
-        #         if length > longest_length:
-        #             longest_length = length
-        # return longest_length
+        # sortednums = set(sorted(nums))
+        # longest = 0
+        # for num in sortednums:
+        #     length = 1
+        #     while num + length in sortednums:
+        #         length += 1
+        #     longest = max(length, longest)
+        # return longest
+            
+                
