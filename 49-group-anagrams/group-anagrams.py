@@ -17,9 +17,9 @@ class Solution:
 # -> if a string is anagram of other then their resultant sort should be same; for each str we will sort them
 # -> sorted str is key and value is list of str that match this sorted pattern ( aet: [eat, tea])
 # -> we return the values in list format for desired output
-        resultHashMap = defaultdict(list)
+        resultantHashMap = defaultdict(list)
         for str in strs:
-            resultHashMap[tuple(sorted(str))].append(str)
-        return resultHashMap.values()
+            resultantHashMap[tuple(sorted(str))].append(str)
+        return resultantHashMap.values()
             
 
