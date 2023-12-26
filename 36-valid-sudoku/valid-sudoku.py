@@ -3,6 +3,7 @@ class Solution:
 # solution:
 # -> so for each row, column and submatrix we need to check if the set has any duplicate numbers. Let us ignore the `.` in input and then include all the numbers in each row and column.
 # -> how do we consider submatrices? - two ways, one predefine them (only works for this). second is every location(x,y) in 9*9 submatrix on integer division with 3, will always belong to one of 3*3 sub matrix - eg (4,4) in 9,9 => (1,1)
+# -> so you just have to append each value into its respective submatrix[i//3,j//3] and check if value is repeating in that set
 # way1:
         row = defaultdict(set)
         column = defaultdict(set)
