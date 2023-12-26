@@ -7,14 +7,15 @@ class Solution:
             return False
 # by algorithm:
 # -> count the frequency of characters into a hashmap and then compare both; if their hashmap is same then they are anagram
-        # countS, countT = {}, {}
-        # for i in range(len(s)):
-        #     countS[s[i]] = 1 + countS.get(s[i], 0)
-        #     countT[t[i]] = 1 + countT.get(t[i], 0)
-        # for each in countS:
-        #     if countT.get(each, 0) != countS[each]:
-        #         return False
-        # return True
+        countS, countT = defaultdict(int), defaultdict(int)
+        for i in range(len(s)):
+            countS[s[i]] += 1
+            countT[t[i]] += 1
+        print(f"{countS=}{countT=}")
+        for each in countS:
+            if countS[each] != countT[each]:
+                return False
+        return True
 # by sorting:
 # -> if both of their sorted inputs are same then they both are anagrams
-        return sorted(s) == sorted(t)
+        # return sorted(s) == sorted(t)
