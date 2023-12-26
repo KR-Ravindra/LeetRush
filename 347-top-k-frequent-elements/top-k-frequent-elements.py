@@ -5,16 +5,15 @@ class Solution:
 # -> then we plot it on frequency array, here frequency array could only be as big as len(nums)
 # -> we reverse iterate through our frequency array ([6: {1,2}, 5: {2,3}....]) and fill result list with the variable we have in set till k is len(result)
         count = defaultdict(int)
+        result = []
         for num in nums:
             count[num] += 1
-        frequency = [set() for i in range(len(nums)+1)]
-        for each in count:
-            frequency[count[each]].add(each)
-        result = []
-        for i in range(len(frequency)-1,0,-1):
-            for n in frequency[i]:
-                result.append(n)
+        frequency = [[] for i in range(len(nums)+1)]
+        for each, values in count.items():
+            frequency[values].append(each)
+        for each in frequency[::-1]:
+            for eachlistitem in each:
+                result.append(eachlistitem)
                 if len(result) == k:
                     return result
-
-            
+        return False
