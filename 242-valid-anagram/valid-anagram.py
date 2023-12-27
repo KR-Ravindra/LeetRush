@@ -8,13 +8,11 @@ class Solution:
 # by algorithm:
 # -> count the frequency of characters into a hashmap and then compare both; if their hashmap is same then they are anagram
         countS, countT = defaultdict(int), defaultdict(int)
-        for i in range(len(s)):
-            countS[s[i]] += 1
-            countT[t[i]] += 1
-        print(f"{countS=}{countT=}")
-        for each in countS:
-            if countS[each] != countT[each]:
-                return False
+        for index in range(len(s)):
+            countS[s[index]] += 1
+            countT[t[index]] += 1
+        if not countS == countT:
+            return False
         return True
 # by sorting:
 # -> if both of their sorted inputs are same then they both are anagrams
