@@ -12,14 +12,14 @@ class Solution:
         for index in range(len(nums)):
             if index == 0:
                 continue
-            preproduct[index] = nums[index-1] * preproduct[index-1]
+            preproduct[index] *= nums[index-1] * preproduct[index-1]
         print(f"{nums=}{preproduct=}")
         for index in range(len(nums)-1,-1,-1):
             if index == len(nums)-1:
                 continue
             postproduct[index] = nums[index+1] * postproduct[index+1]
         for index in range(len(nums)):
-            result[index] = preproduct[index] * postproduct[index]
+            result[index] *= preproduct[index] * postproduct[index]
         return result
 
 # with space complexity as O(1):
