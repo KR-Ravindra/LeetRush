@@ -3,12 +3,12 @@ class Solution:
 # solution:
 # -> for each element we visit, let us store it in a hashset (why not list? 'in' operation in list is O(n); in set is O(1))
 # -> for every element we see check in the hashset, if exists return True
-        # seenHashSet = set()
-        # for num in nums:
-        #     if num in seenHashSet:
-        #         return True
-        #     seenHashSet.add(num)
-        # return False
+        seen = set()
+        for eachnum in nums:
+            if eachnum in seen:
+                return True
+            seen.add(eachnum)
+        return False
 # by sorting:
 # -> sort all the elements and then compare each other, if any same then we have duplicate
         nums.sort()
