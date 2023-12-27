@@ -11,9 +11,9 @@ class Solution:
         return False
 # by sorting:
 # -> sort all the elements and then compare each other, if any same then we have duplicate
-        nums.sort()
-        for index, num in enumerate(nums):
-            if index+1 <=len(nums)-1:
-                if nums[index+1] == num:
-                    return True
-        return False
+        # nums.sort()
+        # for index, num in enumerate(nums):
+        #     if index+1 <=len(nums)-1:
+        #         if nums[index+1] == num:
+        #             return True
+        # return False
