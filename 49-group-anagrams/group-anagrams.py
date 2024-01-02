@@ -7,9 +7,9 @@ class Solution:
 # -> return the values as list
         resultantHashMap = defaultdict(list)
         for str in strs:
-            count = [0] * 26
-            for char in str:
-                count[ord(char)-ord('a')] += 1
+            count = [0]* 26
+            for eachChar in str:
+                count[ord(eachChar)-ord('a')] += 1
             resultantHashMap[tuple(count)].append(str)
         return resultantHashMap.values()
 # -> sorting way:
