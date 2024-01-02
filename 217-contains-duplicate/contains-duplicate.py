@@ -4,10 +4,10 @@ class Solution:
 # -> for each element we visit, let us store it in a hashset (why not list? 'in' operation in list is O(n); in set is O(1))
 # -> for every element we see check in the hashset, if exists return True
         seen = set()
-        for eachnum in nums:
-            if eachnum in seen:
+        for each in nums:
+            if each in seen:
                 return True
-            seen.add(eachnum)
+            seen.add(each)
         return False
 # by sorting:
 # -> sort all the elements and then compare each other, if any same then we have duplicate
