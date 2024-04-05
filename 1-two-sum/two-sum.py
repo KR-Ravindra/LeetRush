@@ -5,8 +5,8 @@ class Solution:
 # -> let us maintain HashMap and keep storing the numbers we see into it, and check if the diff is in the hashmap instead of whole list which is O(1)
 # -> This way we will immediately know the solution in O(n)
         seen = defaultdict(int)
-        for index, each in enumerate(nums):
-            if target-each in seen:
-                return [index, seen[target-each]]
-            seen[each] = index
+        for index, number in enumerate(nums):
+            if target-number in seen:
+                return [index, seen[target-number]]
+            seen[number] = index
         return False
