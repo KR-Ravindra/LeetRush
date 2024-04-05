@@ -8,7 +8,6 @@ class Solution:
         resultantHashMap = defaultdict(list)
         for str in strs:
             count = [0]*26
-            print(count)
             for each_char in str:
                 count[ord(each_char)-ord('a')] += 1
             print(tuple(count))
