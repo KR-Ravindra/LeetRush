@@ -7,7 +7,8 @@ class Solution:
         for each in nums:
             if each in seen:
                 return True
-            seen.add(each)
+            else:
+                seen.add(each)
         return False
 # by sorting:
 # -> sort all the elements and then compare each other, if any same then we have duplicate
