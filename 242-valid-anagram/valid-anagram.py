@@ -7,7 +7,7 @@ class Solution:
             return False
 # by algorithm:
 # -> count the frequency of characters into a hashmap and then compare both; if their hashmap is same then they are anagram
-        countS , countT = defaultdict(int), defaultdict(int)
+        countS, countT = defaultdict(int), defaultdict(int)
         for i in range(len(s)):
             countS[s[i]] += 1
             countT[t[i]] += 1
