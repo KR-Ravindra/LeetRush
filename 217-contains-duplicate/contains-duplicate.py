@@ -4,6 +4,8 @@ class Solution:
 # -> for each element we visit, let us store it in a hashset (why not list? 'in' operation in list is O(n); in set is O(1))
 # -> for every element we see check in the hashset, if exists return True
         seen = set()
+        if len(nums) == 0:
+            return False
         for num in nums:
             if num in seen:
                 return True
