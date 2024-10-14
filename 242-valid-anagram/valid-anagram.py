@@ -8,11 +8,14 @@ class Solution:
 # by algorithm:
 # -> count the frequency of characters into a hashmap and then compare both; if their hashmap is same then they are anagram
         countS, countT = defaultdict(int), defaultdict(int)
-        for i in range(len(s)):
-            countS[s[i]] += 1
-            countT[t[i]] += 1
+        for each in s:
+            countS[each] += 1
+        for each in t:
+            countT[each] += 1
         for keys, values in countS.items():
-            if values != countT[keys]:
+            if values == countT[keys]:
+                continue;
+            else:
                 return False
         return True
             
