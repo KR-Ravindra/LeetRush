@@ -2,7 +2,7 @@ class Solution:
     def productExceptSelf(self, nums: List[int]) -> List[int]:
 # solution:
 # -> here space complexity is O(n); result array doesnt count.
-# -> we compute prefix and postfix prodcut arrays; prefix array has at every index product of numbers from main nums array till index (not including index); similarly postfix has product till before that number from end of nums.
+# -> we compute prefix and postfix product arrays; prefix array has at every index product of numbers from main nums array till index (not including index); similarly postfix has product till before that number from end of nums.
 # -> for prefix we traverse nums from 0 to end; postfix we do it end to 0
 # -> at last, for result array we multiply prefix[i]*postfix[i]
         # preproduct = [1] * len(nums)
@@ -28,11 +28,14 @@ class Solution:
         prefix = 1
         postfix = 1
         result = [1]*len(nums)
-        for index in range(1,len(nums),1):
-            prefix *= nums[index-1]
-            result[index] *= prefix
 
-        for index in range(len(nums)-2, -1 , -1):
-            postfix *= nums[index+1]
-            result[index] *= postfix
+        for i in range(len(nums)):
+            result[i] *= prefix
+            prefix *= nums[i]
+        
+        for i in range(len(nums)-1,-1,-1):
+            result[i] *= postfix
+            postfix *= nums[i]
+        
         return result
+            
