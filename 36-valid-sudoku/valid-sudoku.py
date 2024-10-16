@@ -9,43 +9,40 @@ class Solution:
         column = defaultdict(set)
         submatrix = defaultdict(set)
 
-        for index in range(len(board)):
-            for secondindex in range(len(board)):
-                if board[index][secondindex] == '.':
+        for i in range(9):
+            for j in range(9):
+                if board[i][j] == ".":
                     continue
-                if (
-                    board[index][secondindex] in row[index] or
-                    board[index][secondindex] in column[secondindex] or
-                    board[index][secondindex] in submatrix[index//3,secondindex//3]
-                ):
+                if (board[i][j] in row[i]) or (board[i][j] in column[j]) or (board[i][j] in submatrix[(i//3,j//3)]):
                     return False
-                row[index].add(board[index][secondindex])
-                column[secondindex].add(board[index][secondindex])
-                submatrix[index//3,secondindex//3].add(board[index][secondindex])
+                row[i].add(board[i][j])
+                column[j].add(board[i][j])
+                submatrix[(i//3,j//3)].add(board[i][j])
+        print(f"{row=} {column=} {submatrix=}")
         return True
 
 # way2: manually building submatrices
-        rowscount = defaultdict(set)
-        columncount = defaultdict(set)
+        # rowscount = defaultdict(set)
+        # columncount = defaultdict(set)
 
 
-        for i in range(len(board)):
-            for j in range(len(board)):
-                if board[i][j] == '.':
-                    continue
-                if (board[i][j] in rowscount[i] or
-                    board[i][j] in columncount[j] ):
-                    return False
-                rowscount[i].add(board[i][j])
-                columncount[j].add(board[i][j])
-        submatrices=[[0,0],[0,3],[0,6],[3,0],[3,3],[3,6],[6,0],[6,3],[6,6]]
-        for x,y in submatrices:  
-            submatrix = set()              
-            for i in range(x,x+3):
-                for j in range(y,y+3):
-                    if board[i][j] == '.':
-                        continue
-                    if (board[i][j] in submatrix):
-                        return False
-                    submatrix.add(board[i][j])
-        return True
+        # for i in range(len(board)):
+        #     for j in range(len(board)):
+        #         if board[i][j] == '.':
+        #             continue
+        #         if (board[i][j] in rowscount[i] or
+        #             board[i][j] in columncount[j] ):
+        #             return False
+        #         rowscount[i].add(board[i][j])
+        #         columncount[j].add(board[i][j])
+        # submatrices=[[0,0],[0,3],[0,6],[3,0],[3,3],[3,6],[6,0],[6,3],[6,6]]
+        # for x,y in submatrices:  
+        #     submatrix = set()              
+        #     for i in range(x,x+3):
+        #         for j in range(y,y+3):
+        #             if board[i][j] == '.':
+        #                 continue
+        #             if (board[i][j] in submatrix):
+        #                 return False
+        #             submatrix.add(board[i][j])
+        # return True
