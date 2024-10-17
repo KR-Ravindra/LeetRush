@@ -13,22 +13,21 @@ class Solution:
         # return finals == finals[::-1]
 # solution by two pointers:
 # -> have a left pointer and right pointer , left moves moves forward from 0 of string and vice versa for right, check if string[left] == string[right] at each step while ignoring all non alpha numeric characters
-
-        left, right = 0, len(s)-1
-        while left<right:
-            while not self.isalphanumeric(s[left]) and left<right:
+        left, right = 0 , len(s) - 1
+        while left < right:
+            if not self.isalphanumeric(s[left]):
                 left += 1
-
-            while not self.isalphanumeric(s[right]) and left<right:
+                continue
+            if not self.isalphanumeric(s[right]):
                 right -= 1
-
-            if s[left].lower() != s[right].lower():
+                continue
+            if s[left].lower() == s[right].lower():
+                left += 1
+                right -= 1
+                continue
+            else:
                 return False
-            
-            left += 1
-            right -= 1
         return True
-            
 
     def isalphanumeric(self, char):
             return ((ord(char) >= ord('A') and ord(char) <= ord('Z')) or
